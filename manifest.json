@@ -1,7 +1,7 @@
 {
   "name": "NILA Dashboard",
   "short_name": "NILA",
-  "start_url": "./",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff3366",
