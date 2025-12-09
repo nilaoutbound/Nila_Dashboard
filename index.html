@@ -1,32 +1,42 @@
-<form id="loginForm">
-  <input type="text" name="username" placeholder="Username" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>NILA Dashboard</title>
 
-<script>
-document.getElementById('loginForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const form = e.target;
-  const data = {
-    username: form.username.value,
-    password: form.password.value
-  };
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ff3366">
 
-  // Panggil Web App Apps Script (GET/POST)
-  const response = await fetch('https://script.google.com/macros/s/AKfycbzdo0SPq3qGRLzliwtTaLu8hQQKdSv-N7QXAZn_3h71gKNdVkz2uNz7bOyajRbAQlJI/exec', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {'Content-Type': 'application/json'}
-  });
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="nila-32.png">
+  <link rel="apple-touch-icon" href="nila-180.png">
 
-  const result = await response.json();
-  if (result.success) {
-    alert('Login berhasil!');
-    // redirect ke dashboard PWA
-    window.location.href = '/dashboard.html';
-  } else {
-    alert('Login gagal!');
-  }
-});
-</script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading {
+      color: #ff3366;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">Mengalihkan ke Dashboard...</div>
+
+  <script>
+    // Redirect langsung ke Web App Google Apps Script (full page, bukan iframe)
+    window.location.href = "https://script.google.com/macros/s/AKfycbzdo0SPq3qGRLzliwtTaLu8hQQKdSv-N7QXAZn_3h71gKNdVkz2uNz7bOyajRbAQlJI/exec";
+  </script>
+</body>
+</html>
